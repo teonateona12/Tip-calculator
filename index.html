@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Space+Mono&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <!-- logo -->
+    <div class="logo">
+      <img src="./images/logo.svg" />
+    </div>
+    <div class="main">
+      <!-- white container -->
+      <div class="container">
+        <p class="text">BILL</p>
+        <input class="bill-inp" type="text" placeholder="0" />
+        <p class="tip">Select Tip %</p>
+        <!-- buttons container -->
+        <div class="btn-div">
+          <button class="btn-one">5%</button>
+          <button class="btn-two">10%</button>
+          <button class="btn-three">15%</button>
+          <button class="btn-four">25%</button>
+          <button class="btn-five">50%</button>
+          <button class="btn-six">Custom</button>
+        </div>
+        <p class="number">Number of People</p>
+        <input class="people-inp" type="number" placeholder="0" />
+
+
+        <!-- result container -->
+        <div class="result">
+          <!-- tip amount -->
+          <div class="div-one">
+            <div>
+              <p class="amount">Tip Amount</p>
+              <p class="person">/ person</p>
+            </div>
+            <p class="tip-number">$0.00</p>
+          </div>
+
+          <!-- total -->
+          <div class="div-two">
+            <div>
+              <p class="total">Total</p>
+              <p class="person">/ person</p>
+            </div>
+            <p class="total-number">$0.00</p>
+          </div>
+          <button class="reset">RESET</button>
+        </div>
+      </div>
+    </div>
+
+    <script src="index.js"></script>
+  </body>
+</html>

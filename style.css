@@ -182,6 +182,7 @@ body {
     padding: 32px;
     display: flex;
     border-radius: 25px;
+    margin: 0 0 200px 0;
   }
 
   .result {
@@ -209,5 +210,10 @@ body {
   }
   .reset{
     background-color: #0D686D;
+  }
+  .main{
+    display: flex;
+    justify-content: center;
+    align-items: center;
   }
 }

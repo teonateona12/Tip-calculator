@@ -2,46 +2,87 @@
 
 //select elements
 const btnSix = document.querySelector(".btn-six");
-const btns = document.querySelectorAll(".btn");
-
 const billInp = document.querySelector(".bill-inp");
 const peopleInp = document.querySelector(".people-inp");
 const tipAmount = document.querySelector(".tip-number");
 const totalNumber = document.querySelector(".total-number");
 const reset = document.querySelector(".reset");
 const error = document.querySelector(".error");
+const btnDiv = document.getElementById("btn-div-two");
 
+// Functions
 
-
-//only positive number of people
-peopleInp.addEventListener("input", (e) => {
-  e.preventDefault();
-  if (peopleInp.value < 0) {
-    peopleInp.value = "";
+//calculate function
+let tipPercent;
+const calculate = () => {
+  if (billInp.value && peopleInp.value && tipPercent) {
+    let billInputValue = parseFloat(billInp.value);
+    let tip = billInputValue * tipPercent;
+    let totalPerPerson = (billInputValue + tip) / peopleInp.value;
+    let tipPerPersent = tip / peopleInp.value;
+    totalNumber.textContent = `$${totalPerPerson.toFixed(2)}`;
+    tipAmount.textContent = `$${tipPerPersent.toFixed(2)}`;
+    emptyOrFull();
   }
+};
+
+//if number of people is 0, or empty
+const emptyOrFull = () => {
+  if (peopleInp.value === "") {
+    error.textContent = "";
+    peopleInp.classList.remove("error-inp");
+  }
+  if (+peopleInp.value === 0) {
+    error.textContent = "Can't be zero";
+    peopleInp.classList.add("error-inp");
+    totalNumber.textContent = "$0.00";
+    tipAmount.textContent = "$0.00";
+  } else {
+    error.textContent = "";
+    peopleInp.classList.remove("error-inp");
+  }
+};
+
+// buttons
+btnDiv.addEventListener("click", (e) => {
+  tipPercent = parseFloat(e.target.value) / 100;
+  calculate();
 });
 
-//only positive number of bill
-billInp.addEventListener("input", (e) => {
+//custom button
+btnSix.addEventListener("input", (e) => {
   e.preventDefault();
+  positiveNumbers();
+  btnSix.classList.add("border");
+  tipPercent = Number(e.target.value) / 100;
+  calculate();
+});
+
+//only positive number of people
+const positiveNumbers = () => {
   if (billInp.value < 0) {
     billInp.value = "";
   }
+  if (peopleInp.value < 0) {
+    peopleInp.value = "";
+  }
+  if (btnSix.value < 0) {
+    btnSix.value = "";
+  }
+};
+
+//number of people
+peopleInp.addEventListener("input", (e) => {
+  e.preventDefault();
+  positiveNumbers();
+  calculate();
 });
 
-//buttons click
-for (let i = 0; i < btns.length; i++) {
-  btns[i].addEventListener("click", (e) => {
-    e.preventDefault();
-    tipAndTotal(+btns[i].value);
-  });
-}
-
-//custom
-btnSix.addEventListener("input", (e) => {
+//number of bill
+billInp.addEventListener("input", (e) => {
   e.preventDefault();
-  tipAndTotal(btnSix.value);
-  btnSix.classList.add("border");
+  positiveNumbers();
+  calculate();
 });
 
 //reset
@@ -54,27 +95,3 @@ reset.addEventListener("click", () => {
   error.textContent = "";
   peopleInp.classList.remove("error-inp");
 });
-
-//calculate tip and total
-const tipAndTotal = (persent) => {
-  if (+peopleInp.value === 0) {
-    error.textContent = "Can't be zero";
-    peopleInp.classList.add("error-inp");
-    totalNumber.textContent = "$0.00";
-    tipAmount.textContent = "$0.00";
-  } else {
-    let devide = (billInp.value / 100) * persent;
-    let result = devide / peopleInp.value;
-    tipAmount.textContent = `$${result.toFixed(2)}`;
-    let total = billInp.value / peopleInp.value + result;
-    totalNumber.textContent = `$${total.toFixed(2)}`;
-    error.textContent = "";
-    peopleInp.classList.remove("error-inp");
-  }
-
-  //if number is empty
-  if (peopleInp.value === "") {
-    error.textContent = "";
-    peopleInp.classList.remove("error-inp");
-  }
-};

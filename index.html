@@ -21,40 +21,45 @@
     <div class="main">
       <!-- white container -->
       <div class="container">
-        <p class="text">BILL</p>
-        <input class="bill-inp" type="text" placeholder="0" />
-        <p class="tip">Select Tip %</p>
-        <!-- buttons container -->
-        <div class="btn-div">
-          <button class="btn-one">5%</button>
-          <button class="btn-two">10%</button>
-          <button class="btn-three">15%</button>
-          <button class="btn-four">25%</button>
-          <button class="btn-five">50%</button>
-          <button class="btn-six">Custom</button>
+        <div class="div-des">
+          <p class="text">BILL</p>
+          <input class="bill-inp" type="number" placeholder="0" />
+          <p class="tip">Select Tip %</p>
+          <!-- buttons container -->
+          <div class="btn-div">
+            <button class="btn" value="5">5%</button>
+            <button class="btn" value="10">10%</button>
+            <button class="btn" value="15">15%</button>
+            <button class="btn" value="25">25%</button>
+            <button class="btn" value="50">50%</button>
+            <input type="number" class="btn-six" placeholder="Custom" />
+          </div>
+          <div class="text-error">
+            <p class="number">Number of People</p>
+            <p class="error"></p>
+          </div>
+          <input class="people-inp" type="number" placeholder="0" />
         </div>
-        <p class="number">Number of People</p>
-        <input class="people-inp" type="number" placeholder="0" />
-
-
         <!-- result container -->
         <div class="result">
           <!-- tip amount -->
-          <div class="div-one">
-            <div>
-              <p class="amount">Tip Amount</p>
-              <p class="person">/ person</p>
+          <div>
+            <div class="div-one">
+              <div>
+                <p class="amount">Tip Amount</p>
+                <p class="person">/ person</p>
+              </div>
+              <p class="tip-number">$0.00</p>
             </div>
-            <p class="tip-number">$0.00</p>
-          </div>
 
-          <!-- total -->
-          <div class="div-two">
-            <div>
-              <p class="total">Total</p>
-              <p class="person">/ person</p>
+            <!-- total -->
+            <div class="div-two">
+              <div>
+                <p class="total">Total</p>
+                <p class="person">/ person</p>
+              </div>
+              <p class="total-number">$0.00</p>
             </div>
-            <p class="total-number">$0.00</p>
           </div>
           <button class="reset">RESET</button>
         </div>

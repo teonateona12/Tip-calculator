@@ -2,6 +2,7 @@ body {
   background: #c5e4e7;
   margin: 0;
   font-family: "Space Mono", monospace;
+  height: 100vh;
 }
 .logo {
   display: flex;
@@ -10,22 +11,23 @@ body {
 }
 
 .main {
-  background: #ffffff;
+  background: #c5e4e7;
   box-shadow: 0px 32px 43px rgba(79, 166, 175, 0.200735);
   border-radius: 25px 25px 0px 0px;
-  height: 100%;
   display: flex;
   flex-direction: column;
 }
 .container {
   padding: 32px;
+  background-color: white;
+  border-radius: 25px 25px 0px 0px;
 }
 
 .bill-inp {
   background-color: #f3f9fa;
   border-radius: 5px;
   border: none;
-  width: 95%;
+  width: 85%;
   background-image: url(/images/icon-dollar.svg);
   background-repeat: no-repeat;
   background-position: left 10px top 15px;
@@ -35,6 +37,7 @@ body {
   font-size: 24px;
   line-height: 36px;
   color: #00474b;
+  padding-left: 25px;
 }
 .tip,
 .number,
@@ -49,11 +52,7 @@ body {
   flex-wrap: wrap;
   gap: 15px;
 }
-.btn-one,
-.btn-three,
-.btn-four,
-.btn-two,
-.btn-five,
+.btn,
 .btn-six {
   background: #00474b;
   border-radius: 5px;
@@ -70,12 +69,15 @@ body {
 .btn-six {
   background-color: #f3f9fa;
   color: #547878;
+  width: 35%;
+  padding-left: 25px;
+  border: none;
 }
 .people-inp {
   background-color: #f3f9fa;
   border-radius: 5px;
-  border: none;
-  width: 95%;
+  border-color: #f3f9fa;
+  width: 90%;
   background-image: url(/images/icon-person.svg);
   background-repeat: no-repeat;
   background-position: left 10px top 15px;
@@ -85,6 +87,8 @@ body {
   font-size: 24px;
   line-height: 36px;
   color: #00474b;
+  padding-left: 25px;
+  border: none;
 }
 
 .result {
@@ -119,6 +123,7 @@ body {
   text-align: right;
   letter-spacing: -0.666667px;
   color: #26c2ae;
+  margin-top: 17px;
 }
 .result {
   padding: 24px;
@@ -135,4 +140,74 @@ body {
   width: 100%;
   border: none;
   padding: 10px;
+}
+.text-error {
+  display: flex;
+  justify-content: space-between;
+}
+
+.error {
+  color: #e17052;
+}
+
+.error-inp {
+  border: 2px solid #e17052;
+}
+.reset:hover {
+  background-color: #9fe8df;
+}
+.btn:hover {
+  background-color: #9fe8df;
+  color: #00474b;
+}
+
+.border {
+  border: 3px solid #26c2ae;
+}
+
+.bill-inp:hover {
+  border: 3px solid #26c2ae;
+}
+.bill-inp:active{
+  border: none;
+}
+
+@media screen and (min-width: 1440px) {
+  .logo {
+    padding: 163px;
+  }
+  .container {
+    width: 60%;
+    margin: auto;
+    padding: 32px;
+    display: flex;
+    border-radius: 25px;
+  }
+
+  .result {
+    width: 50%;
+    padding-right: 20px;
+  }
+  .div-des{
+    padding: 20px;
+    width: 50%;
+  }
+  .result{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+  }
+  .bill-inp{
+    width: 90%;
+  }
+  .btn{
+    width: 30%;
+  }
+  .btn-six{
+    width: 24%;
+    padding-left: 10px;
+  }
+  .reset{
+    background-color: #0D686D;
+  }
 }

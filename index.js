@@ -60,15 +60,17 @@ btnSix.addEventListener("input", (e) => {
 
 //only positive number of people
 const positiveNumbers = () => {
-  if (billInp.value < 0) {
+  if (billInp.value <= 0) {
     billInp.value = "";
   }
-  if (peopleInp.value < 0) {
+  if (peopleInp.value <= 0) {
     peopleInp.value = "";
   }
-  if (btnSix.value < 0) {
+  if (btnSix.value <= 0) {
     btnSix.value = "";
   }
+
+  
 };
 
 //number of people

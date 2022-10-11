@@ -22,7 +22,6 @@ const calculate = () => {
     let tipPerPersent = tip / peopleInp.value;
     totalNumber.textContent = `$${totalPerPerson.toFixed(2)}`;
     tipAmount.textContent = `$${tipPerPersent.toFixed(2)}`;
-    emptyOrFull();
   }
 };
 
@@ -37,6 +36,7 @@ const emptyOrFull = () => {
     peopleInp.classList.add("error-inp");
     totalNumber.textContent = "$0.00";
     tipAmount.textContent = "$0.00";
+    peopleInp.value = "";
   } else {
     error.textContent = "";
     peopleInp.classList.remove("error-inp");
@@ -63,19 +63,18 @@ const positiveNumbers = () => {
   if (billInp.value <= 0) {
     billInp.value = "";
   }
-  if (peopleInp.value <= 0) {
+  if (peopleInp.value < 0) {
     peopleInp.value = "";
   }
   if (btnSix.value <= 0) {
     btnSix.value = "";
   }
-
-  
 };
 
 //number of people
 peopleInp.addEventListener("input", (e) => {
   e.preventDefault();
+  emptyOrFull();
   positiveNumbers();
   calculate();
 });
